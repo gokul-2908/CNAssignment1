@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw Money</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin-top: 50px;
+        }
+        .container {
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        h2 {
+            color: #c0392b;
+        }
+        p {
+            font-size: 18px;
+        }
+        input {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .withdraw-btn {
+            background-color: #c0392b;
+            color: white;
+        }
+        .withdraw-btn:hover {
+            background-color: #a93226;
+        }
+        .home-btn {
+            background-color: #2980b9;
+            color: white;
+            margin-top: 10px;
+        }
+        .home-btn:hover {
+            background-color: #1f6692;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bank Account</h2>
+        <p><strong>Balance:</strong> $<span id="balance">1000</span></p>
+        <input type="number" id="withdrawAmount" placeholder="Enter amount to withdraw">
+        <button class="withdraw-btn" onclick="withdrawMoney()">Withdraw</button>
+        <button class="home-btn" onclick="goToHomePage()">Back to Home Page</button>
+    </div>
+
+    <script>
+        let balance = 3500; // Initial balance
+
+        function withdrawMoney() {
+            let amount = parseFloat(document.getElementById('withdrawAmount').value);
+            if (!isNaN(amount) && amount > 0 && amount <= balance) {
+                balance -= amount;
+                document.getElementById('balance').textContent = balance.toFixed(2);
+                document.getElementById('withdrawAmount').value = '';
+                alert("Withdrawal successful!");
+            } else if (amount > balance) {
+                alert("Insufficient funds!");
+            } else {
+                alert("Please enter a valid amount.");
+            }
+        }
+
+        function goToHomePage() {
+            window.location.href = "main.html"; // Change "index.html" to your home page URL
+        }
+    </script>
+</body>
+</html>

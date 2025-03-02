@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Balance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin-top: 50px;
+        }
+        .container {
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        p {
+            font-size: 20px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+        .home-btn {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .home-btn:hover {
+            background-color: #1f6692;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bank Account</h2>
+        <p>Current Balance: $<span id="balance">1000</span></p>
+        <button class="home-btn" onclick="goToHomePage()">Back to Home Page</button>
+    </div>
+
+    <script>
+        let balance = 1000; // Initial balance
+        document.getElementById('balance').textContent = balance.toFixed(2);
+
+        function goToHomePage() {
+            window.location.href = "main.html"; // Change "index.html" to your home page URL
+        }
+    </script>
+</body>
+</html>
